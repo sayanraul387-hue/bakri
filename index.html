@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍋 Cosmic BAKHRI Music</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 20% 20%, #2e005f, transparent 30%),
+    radial-gradient(circle at 80% 20%, #004cff, transparent 30%),
+    radial-gradient(circle at 50% 80%, #fc0606, transparent 30%),
+    #050816;
+}
+
+.bg-animation{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    overflow:hidden;
+}
+
+.bg-animation img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.bg-animation video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.container{
+    position:relative;
+    z-index:10;
+}
+
+.container{
+    position:relative;
+    width:900px;
+    max-width:95%;
+    padding:35px;
+    border-radius:30px;
+
+   background:transparent;
+
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:
+    0 0 25px #14f03133,
+    0 0 50px rgba(182,94,255,.25);
+
+    color:white;
+    text-align:center;
+}
+
+/* Top Logo */
+.logo{
+    margin-bottom:15px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.logo img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,0.3);
+    box-shadow:
+    0 0 20px #fab700,
+    0 0 40px #d40b0b;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#00ffe1,#fff700);
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    color:#d8d8d8;
+    margin-bottom:25px;
+}
+
+.text-box{
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    line-height:1.8;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.player{
+    background:rgba(0,0,0,.25);
+    padding:25px;
+    border-radius:20px;
+}
+
+
+
+@keyframes juiceDrop{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(100px);
+        opacity:0;
+    }
+}
+
+@keyframes drop{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(70px);
+    }
+}
+
+/* Play Animation */
+
+.cover.playing .left{
+    transform:translate(-120px,-50%) rotate(-25deg);
+}
+
+.cover.playing .right{
+    transform:translate(15px,-50%) rotate(25deg);
+}
+
+.cover.playing .juice{
+    opacity:1;
+}
+
+.cover.playing .juice1{
+    left:110px;
+    top:50px;
+}
+
+.cover.playing .juice2{
+    left:80px;
+    top:95px;
+}
+
+.cover.playing .juice3{
+    left:140px;
+    top:95px;
+}
+.cover.playing .juice4{
+    left:140px;
+    top:95px;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+.cover img{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.song-title{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.play-btn{
+    margin-top:20px;
+    width:80px;
+    height:80px;
+    border:none;
+    border-radius:50%;
+    font-size:35px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#e2e2e2,#c9f505);
+    box-shadow:0 0 25px #000000;
+    transition:.3s;
+}
+
+.play-btn:hover{
+    transform:scale(1.1);
+}
+
+audio{
+    width:100%;
+    margin-top:20px;
+}
+
+.footer{
+    margin-top:25px;
+    color:#bdbdbd;
+}
+</style>
+</head>
+
+<body>
+<div class="bg-animation">
+<video id="bgVideo" autoplay loop playsinline>
+    <source src="sound.mp4" type="video/mp4">
+</video>
+</div>
+<div class="container">
+
+    <!-- Top Logo -->
+    <div class="logo">
+        <img src="BAKHRI.jpg" alt="Lebu Logo">
+    </div>
+
+    <h1>ALL ABOUT GOAT </h1>
+
+  
+
+    <div class="text-box" style="color:#000000;">
+  <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,
+   তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।
+   মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,
+   তোর মতো ছ্যাবলা আর ক্লাসে নেই তো বিশেষ!</b>
+</div>
+
+
+ <div class="song-title">
+    <p id="songName" style="color:rgb(165, 228, 20);">
+        <u>𝄞 GOAT SONG 𝄞</u>
+        <center>👇</center>
+    </p>
+</div>
+
+ <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+
+
+    <!-- Song 1 -->
+    <button class="play-btn" onclick="playSong('Bakri.mp3','𝄞 BEST GOAT SONG 𝄞')">
+        🐐
+    </button>
+
+</div>
+
+<audio id="music" src="Bakri.mp3"></audio>
+
+<div class="text-box">
+  <i>
+    মেয়ের পিছু ঘোরা ছেড়ে পড়াশোনাতে দে মন,
+    নাহলে ‘ছাগল’ নামটা থেকে যাবে সারা জীবন,
+    সময় থাকতে শুধরে যা, তবেই পাবি সম্মান!
+  </i>
+
+  <div class="author">
+    -From ছাগল ইউনিয়ন কমিটি
+  </div>
+</div>
+                   
+<script>
+
+const music = document.getElementById("music");
+const bgVideo = document.getElementById("bgVideo");
+
+// শুরুতে background video sound ON
+bgVideo.muted = false;
+
+function playSong(songFile,title){
+
+    if(music.src.includes(songFile) && !music.paused){
+
+        // Song Pause
+        music.pause();
+
+        // Background sound ON
+        bgVideo.muted = false;
+
+        return;
+    }
+
+    music.src = songFile;
+    document.getElementById("songName").innerHTML = title;
+
+    // Background sound OFF
+    bgVideo.muted = true;
+
+    // Song Play
+    music.play();
+}
+
+// Song শেষ হলে background sound ON
+music.addEventListener("ended", () => {
+    bgVideo.muted = false;
+});
+
+</script>
+</body>
+</html>
