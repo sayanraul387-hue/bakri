@@ -18,8 +18,8 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow-x:hidden; /* ডান-বামে স্ক্রোল হওয়া আটকাবে */
-    overflow-y:auto;   /* ফোনে উপর-নিচে স্ক্রোল করতে দেবে */
+    overflow-x:hidden; /* ডান-বামে ফালতু স্ক্রোল হওয়া আটকাবে */
+    overflow-y:auto;   /* ফোনে উপর-নিচে সুন্দরভাবে স্ক্রোল করতে দেবে */
     padding: 30px 0;   /* ফোনের স্ক্রিনে ওপর-নিচে সুন্দর স্পেস তৈরি করবে */
     background:
     radial-gradient(circle at 20% 20%, #2e005f, transparent 30%),
@@ -28,6 +28,7 @@ body{
     #050816;
 }
 
+/* ব্যাকগ্রাউন্ড ভিডিও কন্টেনার */
 .bg-animation{
     position:fixed;
     top:0;
@@ -38,15 +39,12 @@ body{
     overflow:hidden;
 }
 
-.bg-animation img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+/* ভিডিওর সাইজ ছোট এবং ফোনের সাথে মানানসই করার জন্য ফিক্স */
 .bg-animation video{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:cover; /* ভিডিও স্ক্রিন অনুযায়ী অটো ফিট হবে, অতিরিক্ত বড় দেখাবে না */
+    opacity: 0.4;     /* ভিডিওর ব্রাইটনেস একটু কমিয়ে দেওয়া হলো যাতে কবিতা পরিষ্কার পড়া যায় */
 }
 
 .container{
@@ -56,7 +54,7 @@ body{
     max-width:95%;
     padding:35px;
     border-radius:30px;
-    background:transparent;
+    background:rgba(5, 8, 22, 0.6); /* হালকা কালো ব্যাকগ্রাউন্ড দেওয়া হলো যাতে ভিডিওর ওপরেও লেখাগুলো স্পষ্ট বোঝায় */
     border:1px solid rgba(255,255,255,.15);
     box-shadow:
     0 0 25px #14f03133,
@@ -155,7 +153,6 @@ audio{
 
 <body>
 <div class="bg-animation">
-    <!-- এখানে .webm এবং .mp4 দুটোই মোবাইল ও পিসির জন্য অপ্টিমাইজড করে দেওয়া হয়েছে -->
     <video id="bgVideo" autoplay loop muted playsinline webkit-playsinline preload="auto">
         <source src="sound.webm" type="video/webm">
         <source src="sound.mp4" type="video/mp4">
@@ -163,14 +160,13 @@ audio{
 </div>
 <div class="container">
 
-    <!-- Top Logo -->
     <div class="logo">
         <img src="BAKHRI.jpg" alt="Lebu Logo">
     </div>
 
     <h1>ALL ABOUT GOAT</h1>
 
-    <div class="text-box" style="color:#000000;">
+    <div class="text-box" style="color:#ffffff; background: rgba(255, 0, 0, 0.15); border: 1px solid rgba(255, 0, 0, 0.3);">
       <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,<br>
        তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।<br>
        মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,<br>
@@ -185,7 +181,6 @@ audio{
     </div>
 
     <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-        <!-- Song 1 -->
         <button class="play-btn" onclick="playSong('Bakri.mp3','𝄞 BEST GOAT SONG 𝄞')">
             🐐
         </button>
@@ -209,7 +204,6 @@ audio{
 <script>
 const music = document.getElementById("music");
 
-// ব্যাকগ্রাউন্ড ভিডিওর সাউন্ডের আমাদের দরকার নেই, তাই লজিক একদম ক্লিন ও সিম্পল
 function playSong(songFile, title){
     if(music.src.includes(songFile) && !music.paused){
         music.pause();
