@@ -18,9 +18,9 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow-x:hidden; /* ডান-বামে ফালতু স্ক্রোল হওয়া আটকাবে */
-    overflow-y:auto;   /* ফোনে উপর-নিচে সুন্দরভাবে স্ক্রোল করতে দেবে */
-    padding: 30px 0;   /* ফোনের স্ক্রিনে ওপর-নিচে সুন্দর স্পেস তৈরি করবে */
+    overflow-x:hidden;
+    overflow-y:auto;   
+    padding: 30px 0;   
     background:
     radial-gradient(circle at 20% 20%, #2e005f, transparent 30%),
     radial-gradient(circle at 80% 20%, #004cff, transparent 30%),
@@ -28,7 +28,6 @@ body{
     #050816;
 }
 
-/* ব্যাকগ্রাউন্ড ভিডিও কন্টেনার */
 .bg-animation{
     position:fixed;
     top:0;
@@ -39,12 +38,11 @@ body{
     overflow:hidden;
 }
 
-/* ভিডিওর সাইজ ছোট এবং ফোনের সাথে মানানসই করার জন্য ফিক্স */
 .bg-animation video{
     width:100%;
     height:100%;
-    object-fit:cover; /* ভিডিও স্ক্রিন অনুযায়ী অটো ফিট হবে, অতিরিক্ত বড় দেখাবে না */
-    opacity: 0.4;     /* ভিডিওর ব্রাইটনেস একটু কমিয়ে দেওয়া হলো যাতে কবিতা পরিষ্কার পড়া যায় */
+    object-fit:cover;
+    opacity: 0.6; /* ভিডিওটি যাতে ফোনের স্ক্রিনে সুন্দর ও উজ্জ্বল দেখায় */
 }
 
 .container{
@@ -54,7 +52,7 @@ body{
     max-width:95%;
     padding:35px;
     border-radius:30px;
-    background:rgba(5, 8, 22, 0.6); /* হালকা কালো ব্যাকগ্রাউন্ড দেওয়া হলো যাতে ভিডিওর ওপরেও লেখাগুলো স্পষ্ট বোঝায় */
+    background:transparent; /* এখানে ব্যাকগ্রাউন্ড আবার সম্পূর্ণ ট্রান্সপারেন্ট করা হলো */
     border:1px solid rgba(255,255,255,.15);
     box-shadow:
     0 0 25px #14f03133,
@@ -166,7 +164,7 @@ audio{
 
     <h1>ALL ABOUT GOAT</h1>
 
-    <div class="text-box" style="color:#ffffff; background: rgba(255, 0, 0, 0.15); border: 1px solid rgba(255, 0, 0, 0.3);">
+    <div class="text-box" style="color:#ffffff;">
       <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,<br>
        তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।<br>
        মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,<br>
