@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍋 Cosmic BAKHRI Music</title>
+<title>🐐 Cosmic BAKHRI Music</title>
 
 <style>
 *{
@@ -18,8 +18,8 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow-x:hidden;
-    overflow-y:auto;   
+    overflow-x:hidden; /* ডান-বামে ফালতু স্ক্রোল হওয়া আটকাবে */
+    overflow-y:auto;   /* ফোনে উপর-নিচে স্ক্রোল করতে দেবে */
     padding: 30px 0;   
     background:
     radial-gradient(circle at 20% 20%, #2e005f, transparent 30%),
@@ -42,7 +42,6 @@ body{
     width:100%;
     height:100%;
     object-fit:cover;
-    opacity: 0.6; /* ভিডিওটি যাতে ফোনের স্ক্রিনে সুন্দর ও উজ্জ্বল দেখায় */
 }
 
 .container{
@@ -52,7 +51,7 @@ body{
     max-width:95%;
     padding:35px;
     border-radius:30px;
-    background:transparent; /* এখানে ব্যাকগ্রাউন্ড আবার সম্পূর্ণ ট্রান্সপারেন্ট করা হলো */
+    background:transparent; /* আপনার আগের আসল মেইন ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
     border:1px solid rgba(255,255,255,.15);
     box-shadow:
     0 0 25px #14f03133,
@@ -98,6 +97,7 @@ h1{
     margin-bottom:25px;
 }
 
+/* আপনার আসল গ্লাস ট্রান্সপারেন্ট টেক্সট বক্স */
 .text-box{
     padding:25px;
     border-radius:20px;
@@ -158,13 +158,15 @@ audio{
 </div>
 <div class="container">
 
+    <!-- Top Logo -->
     <div class="logo">
         <img src="BAKHRI.jpg" alt="Lebu Logo">
     </div>
 
     <h1>ALL ABOUT GOAT</h1>
 
-    <div class="text-box" style="color:#ffffff;">
+    <!-- প্রথম টেক্সট বক্স: আসল ব্ল্যাক কালার ও আগের স্টাইল ফিরিয়ে আনা হয়েছে -->
+    <div class="text-box" style="color:#000000;">
       <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,<br>
        তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।<br>
        মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,<br>
@@ -179,6 +181,7 @@ audio{
     </div>
 
     <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+        <!-- Song 1 -->
         <button class="play-btn" onclick="playSong('Bakri.mp3','𝄞 BEST GOAT SONG 𝄞')">
             🐐
         </button>
@@ -186,6 +189,7 @@ audio{
 
     <audio id="music" src="Bakri.mp3"></audio>
 
+    <!-- দ্বিতীয় টেক্সট বক্স: আগের আসল স্টাইল ফিরিয়ে আনা হয়েছে -->
     <div class="text-box">
       <i>
         মেয়ের পিছু ঘোরা ছেড়ে পড়াশোনাতে দে মন,<br>
