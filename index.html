@@ -18,7 +18,9 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    overflow-x:hidden; /* ডান-বামে স্ক্রোল হওয়া আটকাবে */
+    overflow-y:auto;   /* ফোনে উপর-নিচে স্ক্রোল করতে দেবে */
+    padding: 30px 0;   /* ফোনের স্ক্রিনে ওপর-নিচে সুন্দর স্পেস তৈরি করবে */
     background:
     radial-gradient(circle at 20% 20%, #2e005f, transparent 30%),
     radial-gradient(circle at 80% 20%, #004cff, transparent 30%),
@@ -50,22 +52,15 @@ body{
 .container{
     position:relative;
     z-index:10;
-}
-
-.container{
-    position:relative;
     width:900px;
     max-width:95%;
     padding:35px;
     border-radius:30px;
-
-   background:transparent;
-
+    background:transparent;
     border:1px solid rgba(255,255,255,.15);
     box-shadow:
     0 0 25px #14f03133,
     0 0 50px rgba(182,94,255,.25);
-
     color:white;
     text-align:center;
 }
@@ -123,85 +118,6 @@ h1{
     border-radius:20px;
 }
 
-
-
-@keyframes juiceDrop{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(100px);
-        opacity:0;
-    }
-}
-
-@keyframes drop{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(70px);
-    }
-}
-
-/* Play Animation */
-
-.cover.playing .left{
-    transform:translate(-120px,-50%) rotate(-25deg);
-}
-
-.cover.playing .right{
-    transform:translate(15px,-50%) rotate(25deg);
-}
-
-.cover.playing .juice{
-    opacity:1;
-}
-
-.cover.playing .juice1{
-    left:110px;
-    top:50px;
-}
-
-.cover.playing .juice2{
-    left:80px;
-    top:95px;
-}
-
-.cover.playing .juice3{
-    left:140px;
-    top:95px;
-}
-.cover.playing .juice4{
-    left:140px;
-    top:95px;
-}
-
-@keyframes rotate{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
-}
-.cover img{
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-@keyframes rotate{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
-}
-
 .song-title{
     margin-top:20px;
     font-size:24px;
@@ -239,6 +155,7 @@ audio{
 
 <body>
 <div class="bg-animation">
+    <!-- এখানে .webm এবং .mp4 দুটোই মোবাইল ও পিসির জন্য অপ্টিমাইজড করে দেওয়া হয়েছে -->
     <video id="bgVideo" autoplay loop muted playsinline webkit-playsinline preload="auto">
         <source src="sound.webm" type="video/webm">
         <source src="sound.mp4" type="video/mp4">
@@ -251,85 +168,59 @@ audio{
         <img src="BAKHRI.jpg" alt="Lebu Logo">
     </div>
 
-    <h1>ALL ABOUT GOAT </h1>
-
-  
+    <h1>ALL ABOUT GOAT</h1>
 
     <div class="text-box" style="color:#000000;">
-  <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,
-   তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।
-   মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,
-   তোর মতো ছ্যাবলা আর ক্লাসে নেই তো বিশেষ!</b>
-</div>
+      <i> <b>ক্লাসে এসে বই না খুলে শুধু এদিক-ওদিক চায়,<br>
+       তোর ‘বাকরি’ মার্কা চেহারাতেই সবার হাসি পায়।<br>
+       মেয়ের পেছনে ঘুরে তুই নিজের ইজ্জত করিস শেষ,<br>
+       তোর মতো ছ্যাবলা আর ক্লাসে নেই তো বিশেষ!</b></i>
+    </div>
 
+    <div class="song-title">
+        <p id="songName" style="color:rgb(165, 228, 20);">
+            <u>𝄞 GOAT SONG 𝄞</u>
+            <center>👇</center>
+        </p>
+    </div>
 
- <div class="song-title">
-    <p id="songName" style="color:rgb(165, 228, 20);">
-        <u>𝄞 GOAT SONG 𝄞</u>
-        <center>👇</center>
-    </p>
-</div>
+    <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+        <!-- Song 1 -->
+        <button class="play-btn" onclick="playSong('Bakri.mp3','𝄞 BEST GOAT SONG 𝄞')">
+            🐐
+        </button>
+    </div>
 
- <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+    <audio id="music" src="Bakri.mp3"></audio>
 
+    <div class="text-box">
+      <i>
+        মেয়ের পিছু ঘোরা ছেড়ে পড়াশোনাতে দে মন,<br>
+        নাহলে ‘ছাগল’ নামটা থেকে যাবে সারা জীবন,<br>
+        সময় থাকতে শুধরে যা, তবেই পাবি সম্মান!
+      </i>
 
-    <!-- Song 1 -->
-    <button class="play-btn" onclick="playSong('Bakri.mp3','𝄞 BEST GOAT SONG 𝄞')">
-        🐐
-    </button>
-
-</div>
-
-<audio id="music" src="Bakri.mp3"></audio>
-
-<div class="text-box">
-  <i>
-    মেয়ের পিছু ঘোরা ছেড়ে পড়াশোনাতে দে মন,
-    নাহলে ‘ছাগল’ নামটা থেকে যাবে সারা জীবন,
-    সময় থাকতে শুধরে যা, তবেই পাবি সম্মান!
-  </i>
-
-  <div class="author">
-    -From ছাগল ইউনিয়ন কমিটি
-  </div>
+      <div class="author">
+        -From ছাগল ইউনিয়ন কমিটি
+      </div>
+    </div>
 </div>
                    
 <script>
-
 const music = document.getElementById("music");
-const bgVideo = document.getElementById("bgVideo");
 
-// শুরুতে background video sound ON
-bgVideo.muted = false;
-
-function playSong(songFile,title){
-
+// ব্যাকগ্রাউন্ড ভিডিওর সাউন্ডের আমাদের দরকার নেই, তাই লজিক একদম ক্লিন ও সিম্পল
+function playSong(songFile, title){
     if(music.src.includes(songFile) && !music.paused){
-
-        // Song Pause
         music.pause();
-
-        // Background sound ON
-        bgVideo.muted = false;
-
         return;
     }
 
     music.src = songFile;
     document.getElementById("songName").innerHTML = title;
-
-    // Background sound OFF
-    bgVideo.muted = true;
-
-    // Song Play
+    
     music.play();
 }
-
-// Song শেষ হলে background sound ON
-music.addEventListener("ended", () => {
-    bgVideo.muted = false;
-});
-
 </script>
 </body>
 </html>
